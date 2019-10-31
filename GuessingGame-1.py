@@ -16,8 +16,9 @@ def input_control():
 
 import random
 
-number = a = random.randint(1, 9)
-print("Random Number generated! Try to guess the number [between 1 - 9]")
+number = random.randint(1, 9)
+if str(number).isdigit():
+    print("Random Number generated! Try to guess the number [between 1 - 9]")
 
 guess = 0
 count = 0
@@ -26,7 +27,7 @@ while number != guess:
     guess = input_control()
     if number > guess:
         print("Too low")
-    else:
+    elif number < guess:
         print("Too high")
     count = count + 1
 
