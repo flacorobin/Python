@@ -36,9 +36,12 @@ def tic_tac_toe_check(ttt_board):
 
 def input_check(player, board):
 #Function to check input, more check should be in place
+    answer = ''
     while True:
         try:
-            answer = input(f"Player {player} enter coordinates (row, col): ")
+            while ',' not in answer:
+                answer = input(f"Player {player} enter coordinates (row, col): ")           
+
             coordinates = answer.split(',')
 
             x = int(coordinates[0]) -1
