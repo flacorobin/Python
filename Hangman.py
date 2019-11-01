@@ -30,41 +30,70 @@ def print_hangman_board(word, set_letters):
     print('\n')
     return winner
 
-def print_guesses(guesses):
-    if guesses > 1:
-        print("You have ", guesses, "guesses left.")
+def print_guesses(guess_num):
+    if guess_num > 1:
+        print("You have", guess_num, "guesses left.")
     else:
-        print("You have ", guesses, "guess left.")
+        print("You have", guess_num, "guess left.")
 
+def play_again_check():
+    answer = ''
+    while not len(answer) == 1 or not answer.isalpha():
+        answer = input("Do you want to play again? (Y, N)")
+        if answer.upper() == 'Y' or answer.upper() == 'N':
+            answer = answer.upper()
+        else:
+            answer = ''
+    print("\n\n")
+    if answer == 'Y':
+        answer = True
+    else:
+        answer = False
+
+    return answer
+
+def draw_hangman():
+    hangman_dict = {
+    0:'  -----\n'+' |     0 \n'+' |    \|/\n'+' |     |\n'+' |    / \ \n'+' |\n'+' |\n'+"/ \ \n"
+    }
+    print(hangman_dict[0]+"\n\n")
 
 print("Python Hangman!")
-word = pick_word()
-print(word)
-print("Word Length:", len(word))
-guesses = 6
-set_letters = set()
-winner = False
+draw_hangman()
 
-while guesses > 0:
-    if winner == True:
-        break
-    winner = print_hangman_board(word, set_letters)
-    print_guesses(guesses)
+play_again = True
 
-    print('\n')
-    letter = hangman_input()
-    while letter in set_letters:
-        print("You already guesses that letter.")
+while play_again:
+    word = pick_word()
+    print(word)
+    print("Word Length:", len(word))
+
+    guesses = 6
+    set_letters = set()
+    winner = False
+
+    while guesses > 0:
+        winner = print_hangman_board(word, set_letters)
+        if winner == True:
+            break
+        print_guesses(guesses)
+
+        print('\n')
         letter = hangman_input()
-    if letter in word:
-        print("Letter guessed!")
+        while letter in set_letters:
+            print("You already guesses that letter.")
+            letter = hangman_input()
+        if letter in word:
+            print("Letter guessed!")
+        else:
+            print("Letter not in word :(")
+            guesses -= 1
+
+        set_letters.add(letter)
+
+    if winner == True:
+        print('You Won!')
     else:
-        print("Letter not in word :(")
-        guesses -= 1
+        print('You Lost...')
 
-    set_letters.add(letter)
-
-if winner == True:
-    print('You Won!')
-else:
-    print('You Lost...')
+    play_again = play_again_check()
