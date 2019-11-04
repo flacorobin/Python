@@ -95,5 +95,6 @@ while play_again:
         print('You Won!')
     else:
         print('You Lost...')
+        draw_hangman()
 
     play_again = play_again_check()
