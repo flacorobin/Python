@@ -7,9 +7,9 @@
 # R is the rate
 
 print('Program to calculate simple interest')
-P = input('Principle Amount:' )
-R = input('Rate:' )
-T = input('Time:' )
+P = input('Principle Amount: ')
+R = input('Rate: ')
+T = input('Time: ')
 
 SI = (int(P) * int(T) * int(R))/100
 
