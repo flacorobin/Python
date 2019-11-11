@@ -24,5 +24,5 @@ for number in range(start, end + 1):
             if (number % i) == 0:
                 prime = False
                 break
-    if prime == True:
+    if prime is True:
         print(number)

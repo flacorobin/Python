@@ -1,5 +1,6 @@
-#https://www.practicepython.org/exercise/2016/09/24/30-pick-word.html
-#In this exercise, the task is to write a function that picks a random word from a list of words from the SOWPODS dictionary.
+# https://www.practicepython.org/exercise/2016/09/24/30-pick-word.html
+# In this exercise, the task is to write a function that picks a random word
+# from a list of words from the SOWPODS dictionary.
 
 import random
 

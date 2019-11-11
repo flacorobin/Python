@@ -1,5 +1,8 @@
-#https://www.practicepython.org/exercise/2014/04/30/13-fibonacci.html
-#Prints the Fibonacci sequence up to Nth digit. Saves on list, displays the list.
+# https://www.practicepython.org/exercise/2014/04/30/13-fibonacci.html
+# Prints the Fibonacci sequence up to Nth digit. Saves on list, displays the
+# list.
+
+
 def input_control():
     value_NotOk = True
     value = 0
@@ -15,6 +18,7 @@ def input_control():
                 value_NotOk = False
 
     return value
+
 
 def Fibonacci(limit):
     Fibonacci_array = [int(0), int(1)]
